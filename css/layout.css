@@ -1,0 +1,168 @@
+/* ===============================================
+   EVERYDAY PRO - LAYOUT STYLES
+   Grid, Structure & Base Styles
+   =============================================== */
+
+/* ===================
+   RESET & BASE
+   =================== */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+    font-family: 'Inter', sans-serif; 
+    overflow: hidden;
+    letter-spacing: -0.01em;
+}
+
+/* ===================
+   MAIN LAYOUT
+   =================== */
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ===================
+   HEADER
+   =================== */
+header {
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    z-index: 100;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+h1 { 
+    font-weight: 600; 
+    font-size: 1rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #fff, #555);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats-bar {
+    display: flex;
+    gap: var(--space-lg);
+    padding-left: var(--space-lg);
+    border-left: 1px solid var(--border);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.controls { 
+    display: flex; 
+    gap: var(--space-md); 
+    align-items: center;
+}
+
+/* ===================
+   GRID WRAPPER
+   =================== */
+.wrapper {
+    flex: 1;
+    overflow: auto;
+}
+
+#habit-board {
+    display: grid;
+    grid-template-columns: var(--name-width) auto;
+}
+
+/* ===================
+   NAMES COLUMN
+   =================== */
+.names-col {
+    position: sticky;
+    left: 0;
+    background: var(--bg);
+    z-index: 20;
+    border-right: 1px solid var(--border);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+}
+
+/* ===================
+   GRID COLUMN
+   =================== */
+.grid-col {
+    display: flex;
+    flex-direction: column;
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+/* ===================
+   ROWS
+   =================== */
+.row {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    margin-bottom: 4px;
+    gap: 6px;
+}
+
+.header-row {
+    height: 50px;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 15;
+}
+
+/* ===================
+   OVERLAY
+   =================== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}

@@ -1,0 +1,84 @@
+/* ===============================================
+   EVERYDAY PRO - CSS VARIABLES
+   Design System & Theme Configuration
+   =============================================== */
+
+:root {
+    /* ===================
+       CORE COLORS
+       =================== */
+    --bg: #050505;
+    --panel: #111;
+    --border: #1a1a1a;
+    --text: #ffffff;
+    --text-muted: #555;
+    --accent: #00ff9d;
+    
+    /* ===================
+       HEATMAP GRADIENT
+       Level intensity for habit tracking
+       =================== */
+    --level-0: #121212;
+    --level-1: #004d33;
+    --level-2: #009e66;
+    --level-3: #00cc88;
+    --level-4: #00ff9d;
+    
+    /* ===================
+       SEMANTIC COLORS
+       =================== */
+    --color-success: #00ff9d;
+    --color-success-dim: rgba(0, 255, 157, 0.15);
+    --color-warning: #ffc107;
+    --color-warning-dim: rgba(255, 193, 7, 0.15);
+    --color-danger: #ff4757;
+    --color-danger-dim: rgba(255, 71, 87, 0.15);
+    --color-info: #54a0ff;
+    --color-info-dim: rgba(84, 160, 255, 0.15);
+    
+    /* ===================
+       CATEGORY COLORS
+       =================== */
+    --cat-health: #00ff9d;
+    --cat-work: #54a0ff;
+    --cat-personal: #ff9ff3;
+    --cat-learning: #ffc107;
+    
+    /* ===================
+       GRADIENTS
+       =================== */
+    --gradient-primary: linear-gradient(135deg, #00ff9d 0%, #00d4aa 100%);
+    --gradient-dark: linear-gradient(180deg, #111 0%, #050505 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, rgba(0,255,157,0.1) 0%, transparent 70%);
+    
+    /* ===================
+       SPACING SYSTEM
+       =================== */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    
+    /* ===================
+       ANIMATION
+       =================== */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* ===================
+       LAYOUT
+       =================== */
+    --cell-size: 42px;
+    --name-width: 240px;
+    
+    /* ===================
+       SHADOWS
+       =================== */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.5);
+    --shadow-glow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
