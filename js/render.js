@@ -23,9 +23,6 @@ const Renderer = {
                 <div style="font-weight: 600">${date.getDate()}</div>
             </div>`,
         
-        streakBadge: (count, className = '') => 
-            count > 0 ? `<span class="streak-badge ${className}">🔥 ${count}</span>` : '',
-        
         riskBadge: () => 
             `<span class="streak-badge danger" title="${i18n.t('riskTooltip')}">⚠️</span>`
     },
@@ -132,7 +129,6 @@ const Renderer = {
                     </div>
                     <div class="badges">
                         ${atRisk ? this.templates.riskBadge() : ''}
-                        ${this.templates.streakBadge(currentStreak, badgeClass)}
                         <button class="delete-btn" onclick="event.stopPropagation(); App.deleteHabit('${habit.id}')" title="Delete habit"><i data-lucide="trash-2"></i></button>
                     </div>
                 </div>
