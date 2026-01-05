@@ -181,6 +181,20 @@ const Utils = {
         return missedYesterday && didDayBefore && !didToday;
     },
     
+    /**
+     * Get total life-time completions for a habit
+     */
+    getTotalCount(habitId) {
+        const state = StateManager.get();
+        let count = 0;
+        
+        Object.values(state.logs).forEach(logArray => {
+            if (logArray.includes(habitId)) count++;
+        });
+        
+        return count;
+    },
+    
     // ==================
     // PERFORMANCE HELPERS
     // ==================

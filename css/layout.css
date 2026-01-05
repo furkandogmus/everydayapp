@@ -101,7 +101,7 @@ h1 {
 
 #habit-board {
     display: grid;
-    grid-template-columns: var(--name-width) auto;
+    grid-template-columns: var(--name-width) auto 150px;
 }
 
 /* ===================
@@ -120,6 +120,60 @@ h1 {
    GRID COLUMN
    =================== */
 .grid-col {
+    flex-direction: column;
+}
+
+/* ===================
+   STATS COLUMN
+   =================== */
+.stats-col {
+    display: flex;
+    flex-direction: column;
+    padding-right: var(--space-md);
+    background: var(--bg);
+}
+
+.stat-cell-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    height: 50px;
+    border-bottom: 1px solid var(--border);
+}
+
+.stat-cell {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.stat-val {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-val.active {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.stat-val-label {
+    font-size: 0.6rem;
+    opacity: 0.5;
+}
+
+#stats-list {
     display: flex;
     flex-direction: column;
 }

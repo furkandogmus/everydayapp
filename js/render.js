@@ -35,6 +35,7 @@ const Renderer = {
         const state = StateManager.get();
         const namesList = document.getElementById('names-list');
         const gridContainer = document.getElementById('grid-container');
+        const statsList = document.getElementById('stats-list');
         const today = new Date();
         const todayStr = Utils.toDateStr(today);
         
@@ -42,6 +43,7 @@ const Renderer = {
         if (state.habits.length === 0) {
             namesList.innerHTML = '';
             gridContainer.innerHTML = this.renderEmptyState();
+            if (statsList) statsList.innerHTML = '';
             return;
         }
         
@@ -51,6 +53,7 @@ const Renderer = {
         // Build HTML
         let namesHtml = `<div class="header-row"></div>`;
         let gridHtml = this.renderDateHeader(days, today);
+        let statsHtml = this.renderStatsHeader();
         
         // Get habits sorted by stack order
         const sortedHabits = StateManager.getHabitsSorted();
@@ -61,10 +64,12 @@ const Renderer = {
             const isChained = habit.stackAfter && habit.stackAfter === prevHabit?.id;
             namesHtml += this.renderHabitName(habit, todayStr, isChained);
             gridHtml += this.renderHabitRow(habit, days, today);
+            statsHtml += this.renderHabitStats(habit, todayStr);
         });
         
         namesList.innerHTML = namesHtml;
         gridContainer.innerHTML = gridHtml;
+        if (statsList) statsList.innerHTML = statsHtml;
         
         // Refresh Lucide icons after DOM update
         if (window.lucide) {
@@ -76,6 +81,27 @@ const Renderer = {
     // RENDER HELPERS
     // ==================
     
+    renderStatsHeader() {
+        return `
+            <div class="stat-cell-header">
+                <div class="stat-val-label">${i18n.t('currentStreakShort')}</div>
+                <div class="stat-val-label">${i18n.t('longestStreakShort')}</div>
+                <div class="stat-val-label">${i18n.t('totalCountShort')}</div>
+            </div>`;
+    },
+
+    renderHabitStats(habit, todayStr) {
+        const current = Utils.getStreak(habit.id, todayStr);
+        const longest = Utils.getBestStreak(habit.id);
+        const total = Utils.getTotalCount(habit.id);
+
+        return `
+            <div class="stat-cell">
+                <div class="stat-val ${current > 0 ? 'active' : ''}">${current}</div>
+                <div class="stat-val ${longest > 0 ? 'active' : ''}">${longest}</div>
+                <div class="stat-val">${total}</div>
+            </div>`;
+    },
     renderEmptyState() {
         return `
             <div class="empty-state">

@@ -86,6 +86,11 @@ const i18n = {
             pomodoroBreak: 'Mola',
             pomodoroWork: 'Çalışma',
             
+            // Stats Columns
+            currentStreakShort: 'Seri',
+            longestStreakShort: 'En İyi',
+            totalCountShort: 'Top.',
+            
             // Days
             mon: 'Pzt',
             tue: 'Sal',
@@ -195,6 +200,11 @@ const i18n = {
             pomodoroWorkTime: 'Work time!',
             pomodoroBreak: 'Break',
             pomodoroWork: 'Work',
+            
+            // Stats Columns
+            currentStreakShort: 'Streak',
+            longestStreakShort: 'Longest',
+            totalCountShort: 'Total',
             
             // Days
             mon: 'Mon',
