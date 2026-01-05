@@ -53,6 +53,9 @@
                 </button>
             </div>
             
+            <button class="btn-icon" id="theme-toggle-btn" onclick="Theme.toggle()" title="Toggle Theme">
+                <i data-lucide="moon"></i>
+            </button>
             <button class="btn-icon" id="location-btn" onclick="App.setLocation()" title="Set Location" data-i18n-title="setLocation">
                 <i data-lucide="map-pin"></i>
             </button>
@@ -186,6 +189,7 @@
 
 <!-- JavaScript Modules (Order matters!) -->
 <script src="js/i18n.js"></script>
+<script src="js/theme.js"></script>
 <script src="js/state.js"></script>
 <script src="js/prayer.js"></script>
 <script src="js/utils.js"></script>

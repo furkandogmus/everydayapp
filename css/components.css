@@ -38,7 +38,7 @@ button {
     transition: all var(--duration-fast) var(--easing-smooth);
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' fill='%23555' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 6px center;
     text-align: center;
@@ -54,11 +54,11 @@ button {
 }
 
 button:hover { 
-    background: var(--panel); /* Keep panel bg but update border/accent */
+    background: var(--panel);
     color: var(--accent);
     border-color: var(--accent);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 255, 157, 0.1);
+    box-shadow: 0 4px 12px var(--color-success-dim);
 }
 
 button:active {
@@ -67,13 +67,13 @@ button:active {
 
 .btn-primary {
     background: var(--accent);
-    color: #000;
+    color: var(--text-on-accent);
     border-color: var(--accent);
 }
 
 .btn-primary:hover {
     background: var(--accent);
-    color: #000;
+    color: var(--text-on-accent);
 }
 
 .btn-ghost {
@@ -204,7 +204,7 @@ button:active {
     font-size: 0.85rem;
     color: var(--text-muted);
     transition: all var(--duration-fast);
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid var(--border);
     height: 40px;
     gap: var(--space-sm);
 }
@@ -257,7 +257,7 @@ button:active {
 }
 
 .row:hover .name-cell { 
-    color: #fff;
+    color: var(--text);
     background: rgba(255,255,255,0.02);
 }
 
@@ -272,7 +272,7 @@ button:active {
 
 .streak-badge {
     font-size: 0.7rem;
-    background: #222;
+    background: var(--bg);
     padding: 2px 6px;
     border-radius: 4px;
     color: var(--accent);
@@ -284,7 +284,7 @@ button:active {
 
 .streak-badge.milestone {
     background: var(--gradient-primary);
-    color: #000;
+    color: var(--text-on-accent);
     animation: celebrate 0.5s ease;
 }
 
@@ -325,7 +325,7 @@ button:active {
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.85);
     display: none;
     align-items: center;
     justify-content: center;
@@ -389,7 +389,7 @@ input:focus, select:focus {
 select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23555' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
 }
@@ -431,22 +431,22 @@ select {
 .category-option[data-cat="health"].selected { 
     background: var(--cat-health); 
     border-color: var(--cat-health);
-    color: #fff;
+    color: var(--text-on-accent);
 }
 .category-option[data-cat="work"].selected { 
     background: var(--cat-work); 
     border-color: var(--cat-work);
-    color: #fff;
+    color: var(--text-on-accent);
 }
 .category-option[data-cat="personal"].selected { 
     background: var(--cat-personal); 
     border-color: var(--cat-personal);
-    color: #fff;
+    color: var(--text-on-accent);
 }
 .category-option[data-cat="learning"].selected { 
     background: var(--cat-learning); 
     border-color: var(--cat-learning);
-    color: #fff;
+    color: var(--text-on-accent);
 }
 
 /* ===================
@@ -626,9 +626,9 @@ h2 [data-lucide] {
 }
 
 .toast.milestone {
-    border-color: rgba(0, 255, 157, 0.5);
+    border-color: var(--accent);
     background: var(--gradient-primary);
-    color: #000;
+    color: var(--text-on-accent);
     font-weight: 600;
 }
 

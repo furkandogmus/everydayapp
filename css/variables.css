@@ -5,18 +5,18 @@
 
 :root {
     /* ===================
-       CORE COLORS
+       CORE COLORS (DARK - DEFAULT)
        =================== */
     --bg: #050505;
-    --panel: #111;
+    --panel: #111111;
     --border: #1a1a1a;
     --text: #ffffff;
-    --text-muted: #555;
+    --text-muted: #888888;
     --accent: #00ff9d;
+    --text-on-accent: #000000;
     
     /* ===================
        HEATMAP GRADIENT
-       Level intensity for habit tracking
        =================== */
     --level-0: #121212;
     --level-1: #004d33;
@@ -81,4 +81,45 @@
     --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.5);
     --shadow-glow: 0 0 15px rgba(0, 255, 157, 0.3);
+
+    /* ===================
+       ICONS
+       =================== */
+    --icon-color: #555555;
+}
+
+/* ===============================================
+   LIGHT THEME OVERWRITES
+   =============================================== */
+[data-theme="light"] {
+    --bg: #f8f9fa;
+    --panel: #ffffff;
+    --border: #e9ecef;
+    --text: #1a1d20;
+    --text-muted: #6c757d;
+    --accent: #00b36e;
+    --text-on-accent: #ffffff;
+
+    --level-0: #f1f3f5;
+    --level-1: #c3fae8;
+    --level-2: #63e6be;
+    --level-3: #20c997;
+    --level-4: #087f5b;
+
+    --color-success: #0ca678;
+    --color-success-dim: rgba(12, 166, 120, 0.1);
+    --color-warning: #f08c00;
+    --color-warning-dim: rgba(240, 140, 0, 0.1);
+    --color-danger: #f03e3e;
+    --color-danger-dim: rgba(240, 62, 62, 0.1);
+    --color-info: #1971c2;
+    --color-info-dim: rgba(25, 113, 194, 0.1);
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+    --shadow-glow: 0 0 15px rgba(0, 179, 110, 0.2);
+
+    --gradient-dark: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    --icon-color: #adb5bd;
 }

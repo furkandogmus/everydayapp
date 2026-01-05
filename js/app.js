@@ -21,6 +21,9 @@ const App = {
      * Initialize the application
      */
     init() {
+        // Initialize Theme
+        if (window.Theme) Theme.init();
+
         // Initialize i18n
         i18n.init();
         
