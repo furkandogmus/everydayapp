@@ -58,6 +58,7 @@ const i18n = {
             emptyStateDesc: 'Atomic Habits prensipleriyle günlük rutininizi oluşturmaya başlayın. Küçük alışkanlıklar, büyük sonuçlar.',
             addFirstHabit: 'İlk alışkanlığını ekle',
             firstComplete: 'Önce şunu tamamlamalısın:',
+            onlyRecentEditable: 'Sadece bugün ve dün için değişiklik yapabilirsin!',
             
             // Toasts
             habitAdded: 'Alışkanlık eklendi!',
@@ -160,6 +161,7 @@ const i18n = {
             emptyStateDesc: 'Start building your daily routine with Atomic Habits principles. Small habits, big results.',
             addFirstHabit: 'Add your first habit',
             firstComplete: 'First complete:',
+            onlyRecentEditable: 'Only today and yesterday can be edited!',
             
             // Toasts
             habitAdded: 'Habit added!',

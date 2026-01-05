@@ -263,6 +263,18 @@ const App = {
             }
         }
         
+        // Frozen Check (Only today and yesterday)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1);
+        const targetDate = new Date(dateStr);
+        
+        if (targetDate < yesterday) {
+            this.showToast(i18n.t('onlyRecentEditable') || 'Sadece bugün ve dün için değişiklik yapabilirsin!', "info");
+            return;
+        }
+
         const isNowChecked = StateManager.toggleLog(habitId, dateStr);
         
         // Check for streak milestones

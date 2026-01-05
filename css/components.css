@@ -167,6 +167,12 @@ button:active {
     opacity: 0.5;
 }
 
+.cell.frozen {
+    cursor: default;
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
 /* ===================
    NAME CELLS
    =================== */

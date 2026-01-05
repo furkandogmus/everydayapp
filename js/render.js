@@ -10,8 +10,8 @@ const Renderer = {
     // TEMPLATE FRAGMENTS
     // ==================
     templates: {
-        cell: (isDone, isFuture, level, habitId, dateStr, isLocked = false) => `
-            <div class="cell ${isDone ? 'done' : ''} ${isFuture ? 'future' : ''} ${isLocked ? 'locked' : ''}" 
+        cell: (isDone, isFuture, level, habitId, dateStr, isLocked = false, isFrozen = false) => `
+            <div class="cell ${isDone ? 'done' : ''} ${isFuture ? 'future' : ''} ${isLocked ? 'locked' : ''} ${isFrozen ? 'frozen' : ''}" 
                  data-level="${level}" 
                  data-habit-id="${habitId}" 
                  data-date="${dateStr}">
@@ -162,7 +162,20 @@ const Renderer = {
                 }
             }
             
-            html += this.templates.cell(isDone, isFuture, level, habit.id, dateStr, isLocked);
+            // Frozen check (only today and yesterday editable)
+            let isFrozen = false;
+            if (!isFuture) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const yesterday = new Date(today);
+                yesterday.setDate(yesterday.getDate() - 1);
+                
+                if (d < yesterday) {
+                    isFrozen = true;
+                }
+            }
+            
+            html += this.templates.cell(isDone, isFuture, level, habit.id, dateStr, isLocked, isFrozen);
         });
         
         return html + `</div>`;
