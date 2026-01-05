@@ -109,7 +109,14 @@ const i18n = {
                 "🚫 Twitter/X'te gezinme. Kitaplarını NotebookLM'e yükle, podcast gibi dinle.",
                 "⏰ Günlük hatırlatıcılar kur. Farkındalık olmadan zaman akıp gider.",
                 "🍅 Pomodoro tekniği: 25dk odaklan, 5dk mola. Derin çalışmayı sürdürülebilir kıl."
-            ]
+            ],
+
+            // Location & Prayer
+            setLocation: 'Konumu Ayarla',
+            locationSet: 'Konum Ayarlandı',
+            fetchingLocation: 'Konum alınıyor...',
+            locationError: 'Konum alınamadı',
+            prayerTimesUpdated: 'Namaz vakitleri güncellendi'
         },
         
         en: {
@@ -212,7 +219,14 @@ const i18n = {
                 "Don't scroll Twitter/X. Upload books to NotebookLM, listen like a podcast.",
                 "Set daily reminders. Without awareness, time slips away.",
                 "Pomodoro: 25min focus, 5min break. Makes deep work sustainable."
-            ]
+            ],
+
+            // Location & Prayer
+            setLocation: 'Set Location',
+            locationSet: 'Location Set',
+            fetchingLocation: 'Fetching location...',
+            locationError: 'Location error',
+            prayerTimesUpdated: 'Prayer times updated'
         }
     },
     

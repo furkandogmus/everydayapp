@@ -10,7 +10,13 @@ const StateManager = {
         habits: [],
         logs: {},
         activities: {}, // { "2026-01-05": [{ start: "09:00", end: "12:00", name: "Deep Work", id: "a_123" }] }
-        selectedCategory: 'health'
+        selectedCategory: 'health',
+        settings: {
+            location: null, // { lat, lng, city, country }
+            useDynamicPrayers: false,
+            lastPrayerUpdate: null,
+            cachedPrayerTimes: {} // { "2026-01-05": { fajr: "05:30", ... } }
+        }
     },
     
     subscribers: [],
@@ -39,6 +45,11 @@ const StateManager = {
         }
         if (savedLogs) {
             this.state.logs = JSON.parse(savedLogs);
+        }
+
+        const savedSettings = localStorage.getItem('ev_settings');
+        if (savedSettings) {
+            this.state.settings = { ...this.state.settings, ...JSON.parse(savedSettings) };
         }
         
         return this;
@@ -104,6 +115,7 @@ const StateManager = {
     persist() {
         localStorage.setItem('ev_habits', JSON.stringify(this.state.habits));
         localStorage.setItem('ev_logs', JSON.stringify(this.state.logs));
+        localStorage.setItem('ev_settings', JSON.stringify(this.state.settings));
     },
     
     /**

@@ -55,6 +55,14 @@ const App = {
                 this.showToast("👋 Welcome! Add your first habit to get started.", "success");
             }, 500);
         }
+
+        // Sync prayer times if location exists
+        if (window.PrayerService) {
+            PrayerService.sync();
+        }
+
+        // Update location icon state
+        this.updateLocationState();
     },
     
     /**
@@ -360,6 +368,56 @@ const App = {
     hideAddHabit() {
         document.getElementById('modal').classList.remove('active');
         this.editingHabitId = null;
+    },
+
+    // ==================
+    // LOCATION & PRAYER
+    // ==================
+
+    async setLocation() {
+        const btn = document.getElementById('location-btn');
+        if (!btn) return;
+
+        this.showToast(i18n.t('fetchingLocation'), 'info');
+        btn.classList.add('loading');
+
+        try {
+            const location = await PrayerService.requestLocation();
+            
+            // For now, we just save lat/lng. In a real app we might reverse geocode for city name.
+            const settings = StateManager.get('settings');
+            StateManager.setState('settings', {
+                ...settings,
+                location: location
+            });
+
+            this.showToast(i18n.t('locationSet'), 'success');
+            this.updateLocationState();
+            
+            // Sync timings immediately
+            await PrayerService.sync();
+            this.showToast(i18n.t('prayerTimesUpdated'), 'success');
+
+        } catch (error) {
+            console.error('Location Error:', error);
+            this.showToast(i18n.t('locationError'), 'error');
+        } finally {
+            btn.classList.remove('loading');
+        }
+    },
+
+    updateLocationState() {
+        const btn = document.getElementById('location-btn');
+        if (!btn) return;
+
+        const settings = StateManager.get('settings');
+        if (settings.location) {
+            btn.classList.add('active');
+            btn.style.color = 'var(--accent-primary)';
+        } else {
+            btn.classList.remove('active');
+            btn.style.color = '';
+        }
     }
 };
 

@@ -53,6 +53,9 @@
                 </button>
             </div>
             
+            <button class="btn-icon" id="location-btn" onclick="App.setLocation()" title="Set Location" data-i18n-title="setLocation">
+                <i data-lucide="map-pin"></i>
+            </button>
             <select id="lang-select" class="lang-select" onchange="i18n.setLang(this.value)">
                 <option value="tr">🇹🇷</option>
                 <option value="en">🇬🇧</option>
@@ -183,6 +186,7 @@
 <!-- JavaScript Modules (Order matters!) -->
 <script src="js/i18n.js"></script>
 <script src="js/state.js"></script>
+<script src="js/prayer.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/render.js"></script>
 <script src="js/pomodoro.js"></script>
